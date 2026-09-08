@@ -1,0 +1,25 @@
+{
+  "enrichment": {
+    "transport": "stdio",
+    "command": "python",
+    "args": ["-m", "agent_platform.mcp.servers.enrichment_server"],
+    "description": "Lead and company enrichment (clearbit_enrich, company_lookup)"
+  },
+  "billing": {
+    "transport": "stdio",
+    "command": "python",
+    "args": ["-m", "agent_platform.mcp.servers.billing_tools"],
+    "description": "Governed billing capabilities (get_customer, create_refund)"
+  },
+  "saas-enrichment": {
+    "transport": "streamable-http",
+    "url": "http://localhost:9270/mcp",
+    "description": "TEMPLATE: remote SaaS MCP endpoint (streamable HTTP). Copy, point at the vendor's MCP URL, and move secrets to env_headers so the registry file never carries credentials.",
+    "headers": {
+      "X-MCP-Client": "agent-platform"
+    },
+    "env_headers": {
+      "Authorization": "Bearer ${MCP_SAAS_ENRICHMENT_TOKEN}"
+    }
+  }
+}

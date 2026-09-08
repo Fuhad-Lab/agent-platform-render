@@ -1,0 +1,6 @@
+[project]
+name = "agent-platform-render-wrapper"
+version = "0.1.0"
+description = "Build wrapper: pulls the private canonical agent-platform at build time"
+requires-python = ">=3.12"
+dependencies = []

@@ -1,0 +1,7 @@
+# Render build wrapper (python runtime).
+#
+# The canonical repo (Fuhad-Lab/longhorizon-agent-platform) is PRIVATE and the
+# Render GitHub App cannot read it, so the platform itself is installed at
+# build time from git. GITHUB_TOKEN is a Render env var (never committed);
+# pip expands ${GITHUB_TOKEN} in requirements lines.
+git+https://x-access-token:${GITHUB_TOKEN}@github.com/Fuhad-Lab/longhorizon-agent-platform.git@main#egg=agent-platform
