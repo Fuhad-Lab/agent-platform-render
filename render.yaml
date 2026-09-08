@@ -1,0 +1,72 @@
+# Render blueprint — wrapper deployment for the Long-Horizon Autonomous
+# Platform. This file lives in the PUBLIC wrapper repo because the canonical
+# repo is private and unreachable by the Render GitHub App (see Dockerfile).
+# sync:false secrets are set out-of-band via the Render API/dashboard and are
+# preserved across blueprint syncs.
+services:
+  - type: web
+    name: agent-platform
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    plan: starter
+    region: ohio
+    branch: main
+    autoDeploy: true
+    healthCheckPath: /healthz
+    startCommand: python -m agent_platform.cli api
+    envVars:
+      # ---- Durable execution: Temporal Cloud (API-key auth) --------------
+      - key: TEMPORAL__ADDRESS
+        sync: false
+      - key: TEMPORAL__NAMESPACE
+        sync: false
+      - key: TEMPORAL__API_KEY
+        sync: false
+      - key: TEMPORAL__TASK_QUEUE
+        value: agent-platform
+      # ---- State kernel: PostgreSQL (Neon) --------------------------------
+      - key: DATABASE_URL
+        sync: false
+      - key: KERNEL_POOL_MIN_SIZE
+        value: "0"
+      - key: KERNEL_POOL_MAX_SIZE
+        value: "10"
+      # ---- Nervous system: event bus ---------------------------------------
+      - key: EVENT_BUS_REDIS_URL
+        sync: false
+      # ---- Topology ---------------------------------------------------------
+      - key: EMBED_TEMPORAL_WORKER
+        value: "true"
+      - key: SELF_PING_URL
+        sync: false
+      # ---- Reasoning kernel LLM (OpenRouter, validated live) ----------------
+      - key: LLM__PROVIDER
+        value: openrouter
+      - key: LLM__MODEL
+        value: z-ai/glm-5.3-flash
+      - key: OPENROUTER_API_KEY
+        sync: false
+      - key: NVIDIA_API_KEY
+        sync: false
+      # ---- Coding worker: the real OpenHands SDK agent loop -----------------
+      - key: CODING__BACKEND
+        value: openhands
+      - key: CODING__FALLBACK
+        value: shell
+      # ---- Sandbox / integration tokens ---------------------------------------
+      - key: SANDBOX__DRIVER
+        value: local # the Docker container IS the sandbox on this topology
+      - key: SANDBOX__LOCAL_WORKSPACE_ROOT
+        value: /tmp/agent-platform/workspace
+      - key: GITHUB_TOKEN
+        sync: false # used at BUILD time to clone the private canonical repo
+      - key: E2B_API_KEY
+        sync: false
+      - key: NEON_API_KEY
+        sync: false
+      # ---- Governance ------------------------------------------------------------
+      - key: APPROVAL_SECRET
+        sync: false
+      - key: API_PUBLIC_BASE_URL
+        sync: false
