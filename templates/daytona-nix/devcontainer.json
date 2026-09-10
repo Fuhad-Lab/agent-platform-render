@@ -1,0 +1,35 @@
+{
+  "name": "agent-platform-nix",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": ".."
+  },
+  "features": {
+    "ghcr.io/devcontainers/features/nix:1": {
+      "version": "latest",
+      "multiUser": false
+    },
+    "ghcr.io/devcontainers/features/git:1": {},
+    "ghcr.io/devcontainers/features/common-utils:2": {
+      "installZsh": false,
+      "username": "daytona"
+    }
+  },
+  "containerEnv": {
+    "PATH": "/nix/var/nix/profiles/default/bin:/home/daytona/.nix-profile/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+    "NIX_PATH": "nixpkgs=/tmp/nixpkgs"
+  },
+  "remoteUser": "daytona",
+  "workspaceFolder": "/home/daytona",
+  "postCreateCommand": "git clone --depth 1 https://github.com/NixOS/nixpkgs /tmp/nixpkgs || true",
+  "customizations": {
+    "agent-platform": {
+      "purpose": "Daytona workspace initialization template (staging directive Option B)",
+      "notes": [
+        "Daytona mounts /nix/store read-only and protects permissions out of the box when the sandbox is booted from a snapshot captured from this template.",
+        "The shallow nixpkgs git clone in postCreateCommand is deliberate: the tarball flake/channel route goes through nix's tarball-to-git-cache conversion, which the cgroup OOM killer terminates on 1GB sandboxes (verified live 2026-09-10).",
+        "Self-hosted Daytona (Hetzner CAX11, 4GB+) evaluates full nixpkgs without constraints; this template works identically there."
+      ]
+    }
+  }
+}
