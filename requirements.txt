@@ -5,3 +5,5 @@
 # build time from git. GITHUB_TOKEN is a Render env var (never committed);
 # pip expands ${GITHUB_TOKEN} in requirements lines.
 git+https://x-access-token:${GITHUB_TOKEN}@github.com/Fuhad-Lab/longhorizon-agent-platform.git@main#egg=agent-platform
+
+# 2026-09-11: trigger rebuild pulling 7237df3 (live failure-observability fixes)
