@@ -13,3 +13,5 @@ git+https://x-access-token:${GITHUB_TOKEN}@github.com/Fuhad-Lab/longhorizon-agen
 # 2026-09-11c: ActivityError cause-chain evidence
 
 # 2026-09-12: deploy — convex mirror + LSP gate + MCP tools + production law (2ac42bf)
+
+# 2026-09-12b: deploy — escalate-alias fix + list_tables via /database/query + commentary name strip (d40e1f7)
