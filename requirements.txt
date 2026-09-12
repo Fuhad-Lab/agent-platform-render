@@ -17,3 +17,5 @@ git+https://x-access-token:${GITHUB_TOKEN}@github.com/Fuhad-Lab/longhorizon-agen
 # 2026-09-12b: deploy — escalate-alias fix + list_tables via /database/query + commentary name strip (d40e1f7)
 
 # 2026-09-12c: deploy — the stall guard + checkpoint hardening
+
+# 2026-09-12d: deploy — refusal-loop fix (arg normalization + tool-error law)
