@@ -19,3 +19,5 @@ git+https://x-access-token:${GITHUB_TOKEN}@github.com/Fuhad-Lab/longhorizon-agen
 # 2026-09-12c: deploy — the stall guard + checkpoint hardening
 
 # 2026-09-12d: deploy — refusal-loop fix (arg normalization + tool-error law)
+
+# 2026-09-12e: deploy — executor-scoped stall guard + degenerate-turn breaker
