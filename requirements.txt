@@ -11,3 +11,5 @@ git+https://x-access-token:${GITHUB_TOKEN}@github.com/Fuhad-Lab/longhorizon-agen
 # 2026-09-11b: hotfix — worker activity registry (m-3248414cf470)
 
 # 2026-09-11c: ActivityError cause-chain evidence
+
+# 2026-09-12: deploy — convex mirror + LSP gate + MCP tools + production law (2ac42bf)
