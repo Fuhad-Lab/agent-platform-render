@@ -24,3 +24,4 @@ git+https://x-access-token:${GITHUB_TOKEN}@github.com/Fuhad-Lab/longhorizon-agen
 
 # 2026-09-12f: deploy — stall guard settles on productivity alone
 # 2026-09-14: deploy — the web-first build law (exportPathMap killed every build) (358c8cb)
+# 2026-09-14b: deploy — double-encode repair + pipe exit-code fix + 480s build headroom (57d1feb)
