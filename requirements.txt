@@ -29,3 +29,5 @@ git+https://x-access-token:${GITHUB_TOKEN}@github.com/Fuhad-Lab/longhorizon-agen
 # 2026-09-14d: deploy — the use client directive guard (use client enforcement)
 # 2026-09-14e: deploy — layout metadata strip + client layout law
 # 2026-09-14f: deploy — the layout exception (server layout + client providers)
+
+# 2026-09-14g: deploy — the shared workspace template (ezyZip) + the terminal tool (go-vibe-terminal) (8fd265e)
