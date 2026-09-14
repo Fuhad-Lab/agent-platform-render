@@ -31,3 +31,5 @@ git+https://x-access-token:${GITHUB_TOKEN}@github.com/Fuhad-Lab/longhorizon-agen
 # 2026-09-14f: deploy — the layout exception (server layout + client providers)
 
 # 2026-09-14g: deploy — the shared workspace template (ezyZip) + the terminal tool (go-vibe-terminal) (8fd265e)
+
+# 2026-09-14h: deploy — the singular-ref PATCH fix + the restored production env (Postgres kernel) 
