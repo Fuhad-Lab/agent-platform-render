@@ -33,3 +33,5 @@ git+https://x-access-token:${GITHUB_TOKEN}@github.com/Fuhad-Lab/longhorizon-agen
 # 2026-09-14g: deploy — the shared workspace template (ezyZip) + the terminal tool (go-vibe-terminal) (8fd265e)
 
 # 2026-09-14h: deploy — the singular-ref PATCH fix + the restored production env (Postgres kernel) 
+
+# 2026-09-15: deploy 63d1114 — the app-scaffold seeding (27-file template) + delete_file tool + the not-found law (the Pomodoro run root causes)
